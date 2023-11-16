@@ -1,0 +1,127 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Width="1120" 
+        Height="700"
+        MinHeight="700"
+        MinWidth="1120"
+        x:Class="MyAvaloniaApp.Views.Main"
+        Title="Main"
+        WindowStartupLocation="CenterScreen"
+        ExtendClientAreaToDecorationsHint="True"
+        Loaded="Control_OnLoaded"
+        Closing="Window_OnClosing">
+
+
+    <Grid Margin="0,30,0,0" RowDefinitions="70,*,250">
+        <!-- Server Connection -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,auto,auto,190">
+            <Border Classes="Gray" Grid.Column="0" Margin="10,0">
+                <StackPanel Orientation="Horizontal">
+                  <Label Content="OPC Server :"/>
+                  <TextBox Name="TxtServerAddress"
+                           Watermark="OPC Server Address"
+                           IsReadOnly="True"
+                           Width="230" Margin="5,0,0,0"/>
+                  <Button Name="BtnBrowseServer"
+                          Click="BtnBrowseServer_OnClick"
+                          Classes="Blue" IsEnabled="{Binding !CycleReadingState}"
+                          Content="Browse" Margin="5,0"/>
+              </StackPanel>
+            </Border>
+
+              <Border Classes="Gray" Grid.Column="1" Margin="0,0">
+                  <StackPanel Orientation="Horizontal">
+                      <Canvas IsVisible="{Binding CycleReadingState}" Width="15" Height="15" Margin="5,0,0,0">
+                          <Ellipse Name="LiveLight" Fill="#BDBDBD" Width="15" Height="15"/>
+                      </Canvas>
+                      <Button Name="BtnStartReading" Click="BtnStartReading_OnClick" IsEnabled="{Binding !CycleReadingState}" Classes="Green" Content="Start" Width="100" Margin="10,0"/>
+                      <Button Name="BtnStopReading" Click="BtnStopReading_OnClick" IsEnabled="{Binding CycleReadingState}" Classes="Red" Content="Stop" Width="100"/>
+                      
+                      <CheckBox Name="ChkAutoStart" IsChecked="{Binding AutoStart}" Margin="10,0" Content="AutoStart"/>
+                  </StackPanel>
+              </Border>
+
+            <Border Classes="Gray" Grid.Column="2" Margin="10,0">
+                <StackPanel Orientation="Horizontal">
+                    <Canvas
+                            Width="15" Height="15" Margin="0,0,5,0">
+                        <Ellipse Name="DBLiveLight" Fill="#BDBDBD" Width="15" Height="15"/>
+                    </Canvas>
+                    <Button IsEnabled="{Binding !CycleReadingState}" Classes="Green" Content="DB Config" Click="Button_OnClick"/>
+                </StackPanel>
+            </Border>
+
+            <Border Classes="Gray" Grid.Column="3" Margin="0,0,10,0">
+                <Label Content="12:35 PM"
+                       HorizontalContentAlignment="Center"
+                       FontSize="26"
+                       Padding="0"
+                       Foreground="#546E7A"
+                       Name="LblClock"
+                       />
+            </Border>
+          </Grid>
+
+
+        <!-- Tags -->
+        <Border Classes="Gray" Grid.Row="1">
+          <DockPanel>
+              <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                  <Button Name="BtnAddTag" Click="BtnAddTag_OnClick" IsEnabled="{Binding !CycleReadingState}" Classes="Green" Content="Add" Width="80"/>
+                  <Button Name="BtnEditTag" Click="BtnEditTag_OnClick" IsEnabled="{Binding !CycleReadingState}" Classes="Orange" Content="Edit" Width="80"/>
+                  <Button Name="BtnDeleteTag" Click="BtnDeleteTag_OnClick" IsEnabled="{Binding !CycleReadingState}" Classes="Red" Content="Delete" Width="80" Margin="0,0,10,0"/>
+                  <TextBox Name="TxtSearchTag" Width="200"
+                           Watermark="Search Tag Name" Height="30"
+                           HorizontalAlignment="Right"
+                           TextChanging="TxtSearchTag_OnTextChanging"
+                           />
+              </StackPanel>
+                      <DataGrid AutoGenerateColumns="False"
+                                SelectionMode="Extended"
+                                ItemsSource="{Binding OpcTags}"
+                                IsReadOnly="True"
+                                HorizontalScrollBarVisibility="Visible"
+                                Margin="0,10,0,0"
+                                Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type DockPanel}},Path=Height}"
+                                DockPanel.Dock="Top"
+                                Name="DataGridTags"
+                      >
+                          <DataGrid.Columns>
+                              <DataGridTextColumn Binding="{Binding ID}" Header="ID"/>
+                              <DataGridTextColumn Binding="{Binding Module}" Header="Module"/>
+                              <DataGridTextColumn Binding="{Binding TagName}" Header="Tag Name"/>
+                              <DataGridTextColumn Binding="{Binding DataType}" Header="Data Type"/>
+                              <DataGridTextColumn Binding="{Binding SaveTagName}" Header="Save Tag Name"/>
+                              <DataGridTextColumn Binding="{Binding Description}" Header="Description"/>
+                              <DataGridTextColumn Binding="{Binding ReadingCycle}" Header="Cycle (ms)"/>
+                              <DataGridTextColumn Binding="{Binding LastReadingDateTime}" Header="Last Reading"/>
+                          </DataGrid.Columns>
+                      </DataGrid>
+          </DockPanel>
+        </Border>
+
+        <!-- Console Log -->
+        <Grid Grid.Row="2" Margin="10" ColumnDefinitions="*,400">
+            <DockPanel Grid.Row="0" Grid.Column="0">
+              <ListBox
+                  Classes="Console"
+                  Name="ListBoxConsole"
+                  Background="Black"
+                  Foreground="White"
+                  Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type DockPanel}},Path=Height}"
+              />
+            </DockPanel>
+            <Border Classes="Gray" Grid.Row="0" Grid.Column="1" Margin="10,0,0,0">
+              <StackPanel Orientation="Vertical">
+                  <Label HorizontalContentAlignment="Center">Live Value</Label>
+                  <ListBox Name="ListLiveTag" Classes="LiveTag">
+                  </ListBox>
+              </StackPanel>
+            </Border>
+        </Grid>
+
+    </Grid>
+</Window>

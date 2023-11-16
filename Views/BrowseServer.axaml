@@ -1,0 +1,66 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Width="450" 
+        Height="500"
+        x:Class="MyAvaloniaApp.Views.BrowseServer"
+        Title="BrowseServer"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        Topmost="True"
+        Loaded="Control_OnLoaded">
+    <StackPanel Orientation="Vertical">
+      <Label Content="Server Browser"
+             HorizontalContentAlignment="Center"
+             FontSize="18"
+             Foreground="#1A237E"
+             Margin="0,10,0,0"/>
+        <Grid RowDefinitions="50,250,100,50">
+            <Border Grid.Row="0" Classes="Gray" Height="50">
+                <StackPanel Orientation="Horizontal" >
+                    <Label Content="Host:" Margin="5"/>
+                    <TextBox Name="TxtHost" Width="250" />
+                    <Button Classes="Green" Content="Refresh"
+                            Click="Button_OnClick"
+                            Margin="5,0,0,0"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1" Classes="Gray">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                        <RadioButton Name="RdBtnList" 
+                                     IsChecked="True" Content=" Choose from list :"
+                                     GroupName="RdButtons" IsCheckedChanged="RdBtnList_OnIsCheckedChanged"/>
+                        <Label Name="LblLoading" IsVisible="True" Classes="Orange" Content="Loading..."/>
+                    </StackPanel>
+                    <ListBox Name="LstServerList" Background="white"
+                             FontWeight="Bold" CornerRadius="5"
+                             SelectedIndex="0" SelectionMode="Single">
+                        <ListBoxItem> Server 1</ListBoxItem>
+                        <ListBoxItem> Server 2</ListBoxItem>
+                    </ListBox>
+                </DockPanel>
+            </Border>
+            <Border Grid.Row="2" Classes="Gray">
+                <DockPanel>
+                    <RadioButton Name="RdBtnCustom" DockPanel.Dock="Top"
+                                 Content=" Custom Server Address :"
+                                 GroupName="RdButtons"/>
+                    <TextBox Name="TxtCustomAddress" IsEnabled="False" Width="415"></TextBox>
+                </DockPanel>
+            </Border>
+            <StackPanel
+                Grid.Row="3"
+                Margin="0,0,10,0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <Button Name="BtnSelect" Click="BtnSelect_OnClick" Classes="Green" Content="Select"></Button>
+                <Button Name="BtnCancel" Click="BtnCancel_OnClick" Classes="Red" Content="Cancel"></Button>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

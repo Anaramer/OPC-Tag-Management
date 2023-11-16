@@ -1,0 +1,33 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <StackPanel Width="200" Height="200">
+        <TextBox Margin="5">Default</TextBox>
+        <TextBox Margin="5" Classes="Red">Red</TextBox>
+        <TextBox Margin="5" Classes="Green">Green</TextBox>
+    </StackPanel>
+  </Design.PreviewWith>
+
+  <!-- Add Styles Here -->
+  <Style Selector="TextBox">
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+    <Setter Property="Background" Value="white"/>
+    <Setter Property="MinHeight" Value="32"/>
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+  </Style>
+
+  <Style Selector="TextBox.Red">
+      <Setter Property="BorderBrush" Value="#e91e63"/>
+      <Setter Property="BorderThickness" Value="2"/>
+      <Setter Property="Background" Value="#FFEBEE"/>
+  </Style>
+
+  <Style Selector="TextBox.Green">
+      <Setter Property="BorderBrush" Value="#4caf50"/>
+      <Setter Property="BorderThickness" Value="2"/>
+      <Setter Property="Background" Value="#E0F2F1"/>
+  </Style>
+</Styles>

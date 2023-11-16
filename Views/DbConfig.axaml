@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Width="420" 
+        Height="250"
+        x:Class="MyAvaloniaApp.Views.DbConfig"
+        Title="DbConfig"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        Topmost="True">
+  <StackPanel Orientation="Vertical">
+      <Label Content="Oracle Database Config"
+             HorizontalContentAlignment="Center"
+             FontSize="18"
+             Foreground="#1A237E"
+             Margin="0,10,0,0"/>
+      <Border Classes="Gray" Padding="5,10">
+        <Grid ColumnDefinitions="100,*" RowDefinitions="40,40,40">
+            <Label Grid.Row="0" Grid.Column="0" Content="UserName :"  Classes="Form"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Name="TxtUsername" Width="200" TextChanging="TxtUsername_OnTextChanging"/>
+                <Label Name="TxtUsernameErr" Content="Required" IsVisible="True" Classes="Red" Margin="5,0"/>
+            </StackPanel>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Password :" Classes="Form"/>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Name="TxtPassword" Width="200" TextChanging="TxtPassword_OnTextChanging"/>
+                <Label Name="TxtPasswordErr" Content="Required" IsVisible="True" Classes="Red" Margin="5,0"/>
+            </StackPanel>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="DataSource :" Classes="Form"/>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Name="TxtDataSource" Width="200" TextChanging="TxtDataSource_OnTextChanging"/>
+                <Label Name="TxtDataSourceErr" Content="Required" IsVisible="True" Classes="Red" Margin="5,0"/>
+            </StackPanel>
+        </Grid>
+      </Border>
+    <DockPanel
+        Margin="10">
+        <Button Name="BtnTest" Click="BtnTest_OnClick" Classes="Orange" Content="Test Connection"/>
+        <Label Name="BtnTestErr" Content="Success" IsVisible="False" Classes="Green" Margin="5,0"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="BtnSave" Click="BtnSave_OnClick" Classes="Green" Content="Save" />
+            <Button Name="BtnCancel" Click="BtnCancel_OnClick" Classes="Red" Content="Cancel" />
+        </StackPanel>
+        
+    </DockPanel>
+  </StackPanel>
+</Window>

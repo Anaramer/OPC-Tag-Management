@@ -1,0 +1,23 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+      <StackPanel Width="200" Height="400">
+          <Border Classes="Gray" Padding="20" Width="150" Height="100">
+              <Button Classes="Blue">Hello</Button>
+          </Border>
+          <Border Classes="Gray" Padding="20" Width="100" Height="100"/>
+          <Border Classes="Gray" Padding="20" Width="100" Height="100"/>
+
+      </StackPanel>
+  </Design.PreviewWith>
+
+  <!-- Add Styles Here -->
+  <Style Selector="Border.Gray">
+      <Setter Property="Background" Value="#ECEFF1"/>
+      <Setter Property="CornerRadius" Value="5"/>
+      <Setter Property="Margin" Value="10,10,10,0"/>
+      <Setter Property="BorderBrush" Value="#CFD8DC"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Padding" Value="5"/>
+  </Style>
+</Styles>

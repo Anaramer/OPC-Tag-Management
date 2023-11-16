@@ -1,0 +1,93 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <StackPanel Width="200" Height="200">
+        <Button Classes="Blue" Width="100" Height="30">Button</Button>
+        <Button Classes="Green" Width="100" Height="30">Button</Button>
+        <Button Classes="Red" Width="100" Height="30">Button</Button>
+        <Button Classes="Orange" Width="100" Height="30">Button</Button>
+
+    </StackPanel>
+  </Design.PreviewWith>
+
+
+  <!-- Add Styles Here -->
+  <Style Selector="Button">
+      <Setter Property="MinHeight" Value="32"/>
+  </Style>
+
+
+  <Style Selector="Button.Blue">
+    <Setter Property="Background" Value="#2196f3"/>
+    <Setter Property="Foreground" Value="White"/>
+    <Setter Property="MinWidth" Value="80"/>
+    <Setter Property="FontSize" Value="12"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+  </Style>
+  <Style Selector="Button.Blue:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="#4dabf5"/>
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="Button.Blue:pressed /template/ ContentPresenter">
+      <Setter Property="Background" Value="#1769aa"/>
+      <Setter Property="Foreground" Value="White"/>
+  </Style>
+
+  <Style Selector="Button.Green">
+      <Setter Property="Background" Value="#009688"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="MinWidth" Value="80"/>
+      <Setter Property="FontSize" Value="12"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+  </Style>
+  <Style Selector="Button.Green:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#33ab9f"/>
+      <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="Button.Green:pressed /template/ ContentPresenter">
+      <Setter Property="Background" Value="#00695f"/>
+      <Setter Property="Foreground" Value="White"/>
+  </Style>
+
+  <Style Selector="Button.Red">
+      <Setter Property="Background" Value="#e91e63"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="MinWidth" Value="80"/>
+      <Setter Property="FontSize" Value="12"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+  </Style>
+  <Style Selector="Button.Red:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#ed4b82"/>
+      <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="Button.Red:pressed /template/ ContentPresenter">
+      <Setter Property="Background" Value="#a31545"/>
+      <Setter Property="Foreground" Value="White"/>
+  </Style>
+
+  <Style Selector="Button.Orange">
+      <Setter Property="Background" Value="#ff9800"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="MinWidth" Value="80"/>
+      <Setter Property="FontSize" Value="12"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+  </Style>
+  <Style Selector="Button.Orange:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#ffac33"/>
+      <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="Button.Orange:pressed /template/ ContentPresenter">
+      <Setter Property="Background" Value="#b26a00"/>
+      <Setter Property="Foreground" Value="White"/>
+  </Style>
+
+  
+</Styles>

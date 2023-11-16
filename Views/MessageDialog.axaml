@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Width="350" 
+        Height="120"
+        x:Class="MyAvaloniaApp.Views.MessageDialog"
+        Title="MessageDialog"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        Topmost="True">
+  <Grid RowDefinitions="*,50" ColumnDefinitions="*">
+      <Border Grid.Row="0" Classes="Gray" Margin="10,10,10,0"
+              BorderBrush="#FFB300"
+              Background="#FFF8E1">
+          <Label 
+              HorizontalContentAlignment="Center"
+              Content="Are you sure to delete this tag?"/>
+      </Border>
+      <StackPanel
+          Grid.Row="1"
+          Margin="0,0,10,0"
+          HorizontalAlignment="Right"
+          Orientation="Horizontal">
+          <Button Name="BtnYes" Click="BtnYes_OnClick" Classes="Green" Content="YES"></Button>
+          <Button Name="BtnNo" Click="BtnNo_OnClick" Classes="Red" Content="NO"></Button>
+      </StackPanel>
+  </Grid>
+</Window>

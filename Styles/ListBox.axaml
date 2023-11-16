@@ -1,0 +1,60 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <StackPanel  Width="400" Height="500">
+        <ListBox Classes="Console" Width="200" Height="200">
+          <ListBoxItem Classes="Console">Item 1</ListBoxItem>
+          <ListBoxItem Classes="Console">Item 2</ListBoxItem>
+          <ListBoxItem Classes="Console">Item 3</ListBoxItem>
+          <ListBoxItem Classes="Console">Item 4</ListBoxItem>
+        </ListBox>
+
+        <ListBox Classes="LiveTag" Width="200" Height="200">
+            <ListBoxItem Classes="Console">Item 1</ListBoxItem>
+            <ListBoxItem Classes="Console">Item 2</ListBoxItem>
+            <ListBoxItem Classes="Console">Item 3</ListBoxItem>
+            <ListBoxItem Classes="Console">Item 4</ListBoxItem>
+        </ListBox>
+    </StackPanel>
+  </Design.PreviewWith>
+
+  <!-- Add Styles Here -->
+  <Style Selector="ListBox.Console">
+      <Setter Property="Background" Value="Black"/>
+      <Setter Property="Foreground" Value="White"/>
+      <Setter Property="CornerRadius" Value="5"/>
+      <Setter Property="Padding" Value="5"/>
+  </Style>
+
+  <Style Selector="ListBox.Console > ListBoxItem">
+      <Setter Property="Margin" Value="0"/>
+      <Setter Property="Padding" Value="0"/>
+      <Setter Property="FontFamily" Value="Courier New"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+  </Style>
+  <Style Selector="ListBox.Console > ListBoxItem:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="black"/>
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+  <Style Selector="ListBox.Console > ListBoxItem:selected /template/ ContentPresenter">
+    <Setter Property="Background" Value="black"/>
+    <Setter Property="Foreground" Value="White"/>
+  </Style>
+
+  <!-- Add Styles Here -->
+  <Style Selector="ListBox.LiveTag">
+      <Setter Property="Background" Value="#ECEFF1"/>
+      <Setter Property="Foreground" Value="Black"/>
+      <Setter Property="CornerRadius" Value="5"/>
+      <Setter Property="Padding" Value="5"/>
+  </Style>
+
+  <Style Selector="ListBox.LiveTag > ListBoxItem">
+      <Setter Property="FontWeight" Value="Bold"/>
+      <Setter Property="Padding" Value="0,3"/>
+  </Style>
+  <Style Selector="ListBox.LiveTag > ListBoxItem:pointerover /template/ ContentPresenter">
+      <Setter Property="Background" Value="#212121"/>
+      <Setter Property="Foreground" Value="White"/>
+  </Style>
+</Styles>

@@ -1,0 +1,35 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <StackPanel Width="400" Height="200" Background="gray">
+      <DataGrid>
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="Column 1"/>
+          <DataGridTextColumn Header="Column 2"/>
+        </DataGrid.Columns>
+      </DataGrid>
+    </StackPanel>
+  </Design.PreviewWith>
+
+  <!-- Style for DataGrid -->
+  <Style Selector="DataGrid">
+      <Setter Property="Background" Value="#F5F5F5"/>
+      <Setter Property="Foreground" Value="#333333"/>
+      <Setter Property="BorderBrush" Value="#CCCCCC"/>
+      <Setter Property="BorderThickness" Value="1"/>
+  </Style>
+
+  <Style Selector="DataGridColumnHeader">
+      <Setter Property="Background" Value="#EFEBE9"/>
+      <Setter Property="Foreground" Value="#3E2723"/>
+      <Setter Property="FontWeight" Value="Bold"/>
+  </Style>
+
+  <Style Selector="DataGridCell">
+      <Setter Property="Padding" Value="8"/>
+  </Style>
+
+  <Style Selector="DataGridRow">
+      <Setter Property="Background" Value="#E5E5E5"/>
+  </Style>
+</Styles>

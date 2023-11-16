@@ -1,0 +1,44 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <StackPanel Width="200" Height="200">
+          <Label>Default</Label>
+          <Label Classes="Orange">Orange</Label>
+          <Label Classes="Green">Green</Label>
+        <Label Classes="Red">Red</Label>
+        <Label Classes="Form">Red</Label>
+    </StackPanel>
+  </Design.PreviewWith>
+
+  <!-- Style for Labels -->
+  <Style Selector="Label">
+    <Setter Property="Foreground" Value="#333333"/>
+    <Setter Property="FontSize" Value="14"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="Height" Value="32"/>
+    <Setter Property="CornerRadius" Value="5"/>
+    <Setter Property="Padding" Value="5"/>
+  </Style>
+
+  <Style Selector="Label.Orange">
+    <Setter Property="Foreground" Value="Brown"/>
+    <Setter Property="Background" Value="LightGoldenrodYellow"/>
+  </Style>
+
+  <Style Selector="Label.Green">
+      <Setter Property="Foreground" Value="Green"/>
+      <Setter Property="Background" Value="LightGreen"/>
+  </Style>
+
+  <Style Selector="Label.Red">
+      <Setter Property="Foreground" Value="DarkRed"/>
+      <Setter Property="Background" Value="LightPink"/>
+  </Style>
+
+  <Style Selector="Label.Form">
+      <Setter Property="HorizontalContentAlignment" Value="Right"/>
+  </Style>
+
+ 
+</Styles>

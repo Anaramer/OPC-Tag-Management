@@ -1,0 +1,107 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        Width="500" 
+        Height="560"
+        x:Class="MyAvaloniaApp.Views.WinTagInfo"
+        Title="Tag Info"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        Loaded="Control_OnLoaded"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        Topmost="True"
+>
+
+    <Grid RowDefinitions="*,50" Margin="0,0,0,0">
+        <Border Grid.Row="0" Classes="Gray" Margin="10">
+            <Grid RowDefinitions="40,40,40,40,40,40,40,75,40,40,40"
+                  ColumnDefinitions="120,*">
+
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Tag Info" 
+                       HorizontalContentAlignment="Center"
+                       FontSize="18"
+                       Foreground="#1A237E"
+                       Margin="5"/>
+                
+                <Label Grid.Row="1" Grid.Column="0" Content="ID :" Classes="Form"/>
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Name="TxtId" Width="80" MaxLength="2" 
+                         IsReadOnly="True" HorizontalContentAlignment="Center"
+                         Background="#ddd"/>
+                        <Label Content="Systemically" Classes="Orange" Margin="5,0"/>   
+                </StackPanel>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Module :" Classes="Form" />
+                <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                    <TextBox Name="TxtModule"  Width="150" MaxLength="30"/>
+                    <Label Name="TxtModuleErr" Content="Required" IsVisible="False" Classes="Red" Margin="5,0"/>
+                </StackPanel>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="Name :" Classes="Form"/>
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                    <TextBox Name="TxtName" Width="200" MaxLength="40"/>
+                    <Label Name="TxtNameErr" Content="Required" IsVisible="False" Classes="Red" Margin="5,0"/>
+                </StackPanel>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Data Type :" Classes="Form"/>
+                <ComboBox Name="CmbDataType" 
+                          ItemsSource="{Binding DataTypes}"
+                          Grid.Row="4" Grid.Column="1" SelectedIndex="0" 
+                          Width="100" Margin="0,5,0,0"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Content="Alias Name :" Classes="Form"/>
+                <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                    <TextBox Name="TxtAliasName" Width="200"/>
+                    <Label Name="TxtAliasNameErr" Content="Required" IsVisible="False" Classes="Red" Margin="5,0"/>
+                </StackPanel>
+
+                <Label Grid.Row="6" Grid.Column="0" Content="Description :" Classes="Form"/>
+                <TextBox Name="TxtDescription" Grid.Row="6" Grid.Column="1" Width="260" MaxLength="50"/>
+
+                <Label Grid.Row="7" Grid.Column="0" Content="Start At :" Classes="Form" VerticalAlignment="Top" Margin="0,20"/>
+                <StackPanel Orientation="Vertical" Grid.Row="7" Grid.Column="1">
+                    <DatePicker Name="DpStartAt" Margin="0,3"/>
+                    <TimePicker Name="TpStartAt" MinuteIncrement="5"/>
+                </StackPanel>
+
+                <CheckBox Name="ChkEveryDay" Grid.Row="8" Grid.Column="1" Width="260" 
+                          Content="Read Tag Once Everyday?"
+                          IsCheckedChanged="ChkEveryDay_OnIsCheckedChanged"
+                          />
+
+                <Label Grid.Row="9" Grid.Column="0" Content="Everyday At :" Classes="Form"/>
+                <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+                    <TimePicker Name="TpEveryDayAt" MinuteIncrement="5"/>
+                    <Label Name="TpEveryDayAtErr" Content="Required" IsVisible="False" Classes="Red" Margin="5,0"/>
+                </StackPanel>
+
+                <Label Grid.Row="10" Grid.Column="0" Content="Reading Cycle :" Classes="Form"/>
+                <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal">
+                    <NumericUpDown Name="NumCycle" Width="100"
+                                   Height="32" AllowSpin="False"
+                                   HorizontalAlignment="Left" ShowButtonSpinner="False"
+                                   Value="0"
+                                   Minimum="0"
+                                   Maximum="86400"/>
+                    <Label Content="ms"/>
+                    <Label Name="NumCycleErr" Content="Required - More than 100 ms" IsVisible="False" Classes="Red" Margin="5,0"/>
+                </StackPanel>
+
+                
+
+            </Grid>
+        </Border>
+        <StackPanel 
+            Grid.Row="1"
+            Margin="0,0,10,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button Name="BtnSave" Click="BtnSave_OnClick" Classes="Green"> Save</Button>
+            <Button Name="BtnCancel" Click="BtnCancel_OnClick" Classes="Red"> Cancel</Button>
+        </StackPanel>
+    </Grid>
+ 
+</Window>
