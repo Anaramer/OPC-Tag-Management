@@ -119,7 +119,7 @@ public partial class BrowseServer : Window
         {
             serverElements = client.BrowseServers(Host ?? _txtHost!.Text ?? "");
         }
-        catch (OpcException)
+        catch (OpcException exp)
         {
             _lblLoading!.Content = "Failure Loading !";
             _lblLoading!.Classes.Clear();

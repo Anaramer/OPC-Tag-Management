@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PlatformTarget>x86</PlatformTarget>
 
   </PropertyGroup>
   <ItemGroup>
@@ -29,6 +30,7 @@
     <PackageReference Include="GodSharp.Opc.Da.OpcNetApi" Version="2022.308.10" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
+    <PackageReference Include="Opc.UaFx.Client" Version="2.41.0" />
     <PackageReference Include="OpcLabs.QuickOpc" Version="5.71.401" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.110" />
     <PackageReference Include="ReactiveUI" Version="19.5.1" />

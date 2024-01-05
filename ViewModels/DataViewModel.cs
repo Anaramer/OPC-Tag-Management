@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using OpcLabs.BaseLib.Runtime.InteropServices;
 using OpcXml.Da10;
 using Tag = GodSharp.Opc.Da.Tag;
 
@@ -219,6 +220,9 @@ namespace MyAvaloniaApp.ViewModels
 
             try
             {
+                ComManagement.Instance.Configuration.SecurityParameters.EnsureDataIntegrity = true;
+                ComManagement.Instance.AssureSecurityInitialization();
+
                 //define tags for send to OPC server
                 var tagGroups = new List<GroupData>
                 {
@@ -237,6 +241,8 @@ namespace MyAvaloniaApp.ViewModels
                     ProgId = OpcServer,
                     Groups = tagGroups
                 };
+
+                
 
                 //Connect to OPC Server for tag list
                 var opcClient = DaClientFactory.Instance.CreateOpcNetApiClient(new DaClientOptions(
